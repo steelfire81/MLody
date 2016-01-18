@@ -1,0 +1,15 @@
+INTENDED CHANGES:
+
+High Priority:
+ - sync location in song between clients and server (WIP)
+
+Medium Priority:
+ - volume is super low at lower settings (make volume logarithmic)
+ - get rid of hard coded connection to predetermined server location and port
+ - use different threads for sending to different clients
+ - only send the next ~3 songs to clients instead of sending every single song as it's received
+
+
+Low Priority:
+ - move console to client window (replacing SENDING field)
+ - more audio types
