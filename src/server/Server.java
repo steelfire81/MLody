@@ -13,6 +13,9 @@ public class Server {
 	// CONSTANTS - Meta
 	private static final String META_VERSION = "Alpha 0.3.2";
 	
+	// CONSTANTS - Error Messages
+	private static final String ERROR_USAGE = "USAGE: Server [PORT NUMBER (optional)]";
+	
 	// CONSTANTS - Messages
 	private static final String MSG_PLAYBACK = "NOW PLAYING: ";
 	private static final String MSG_SONG_ENQUEUED = "SONG ENQUEUED: ";
@@ -177,11 +180,36 @@ public class Server {
 	/**
 	 * starts the program and creates a server on PORT_DEFAULT
 	 * 
-	 * @param args does nothing
+	 * @param args takes (optional) port number as args[0]
 	 */
 	public static void main(String[] args) throws IOException
 	{
 		System.out.println("Starting M'Lody Server Version " + META_VERSION + "\n");
-		new Server(PORT_DEFAULT);
+		
+		if(args.length == 0)
+			new Server(PORT_DEFAULT);
+		else if(args.length == 1) // port number provided
+		{
+			try
+			{
+				int port = Integer.parseInt(args[0]);
+				new Server(port);
+			}
+			catch(NumberFormatException nfe)
+			{
+				improperArgs();
+			}
+		}
+		else // improper args
+			improperArgs();
+	}
+	
+	/**
+	 * exits the program if the args provided are not formatted properly
+	 */
+	private static void improperArgs()
+	{
+		System.err.println(ERROR_USAGE);
+		System.exit(1);
 	}
 }
