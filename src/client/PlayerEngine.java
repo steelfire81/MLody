@@ -40,6 +40,7 @@ public class PlayerEngine implements ActionListener {
 	private ReceiverThread receiver;
 	private JavaSoundAudioDevice device;
 	private int volume;
+	private File directory;
 	
 	/**
 	 * constructor for the PlayerEngine class taking a parent window
@@ -94,10 +95,11 @@ public class PlayerEngine implements ActionListener {
 	 */
 	private void selectSong()
 	{
-		JFileChooser selector = new JFileChooser();
+		JFileChooser selector = new JFileChooser(directory);
 		int result = selector.showOpenDialog(parent.buttonAddSong);
 		if(result == JFileChooser.APPROVE_OPTION)
 		{
+			directory = selector.getCurrentDirectory();
 			File selected = selector.getSelectedFile();
 			if(isApprovedFormat(selected.getName()))
 				addSong(selected);

@@ -24,8 +24,8 @@ public class PlayerWindow {
 	private static final String BUTTON_VOLUME_UP_TEXT = "+";
 	
 	// CONSTANTS - Colors
-	private static final Color BUTTON_BG_COLOR = Color.BLUE;
-	private static final Color BUTTON_FG_COLOR = Color.BLACK;
+	private static final Color BUTTON_BG_COLOR = Color.BLACK;
+	private static final Color BUTTON_FG_COLOR = Color.WHITE;
 	private static final Color FIELD_BG_COLOR = Color.WHITE;
 	private static final Color FIELD_FG_COLOR = Color.BLACK;
 	private static final Color LABEL_BG_COLOR = Color.BLACK;
